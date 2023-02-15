@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>BlackJack</title>
+            <link rel="stylesheet" href="./archivos/style.css">
+        </head>
+
+        <body>
+            <h1 class="titulo">BlackJack</h1>
+            <div id="juego">
+                <img src="./Imagenes/dealer.jpg" class="dealer">
+                <canvas id="canvas"></canvas>
+   
+            </div>
+            <div id="botones">
+                <button id="repartir" onclick="repartir()">Repartir cartas</button>
+            
+                <div id="botInteraccion">
+                    <p id="conAs1">0</p>
+                    <button id="pide" onclick="pedir()">Pedir carta</button>
+                    <button id="queda" onclick="quedarse()">Quedarse</button>
+                    <p id="conAs11">0</p>
+                </div>
+            
+                <button id="reinicia" onclick="reiniciar()">Reiniciar juego</button>
+            </div>
+            <script src="./archivos/blackjack.js"></script>
+        </body>
+    </html>

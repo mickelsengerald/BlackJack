@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+body{
+    background-color: aliceblue;
+}
+
+.titulo{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.dealer{
+    width: 50px;
+    height: 50px;
+}
+
+#juego{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#botInteraccion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+#canvas{
+    width: 1024px;
+    height: 480px;
+}
