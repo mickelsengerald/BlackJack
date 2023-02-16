@@ -40,3 +40,27 @@ body{
     width: 1024px;
     height: 480px;
 }
+
+#visualUsuario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#valorUsuario{
+    font-size: 30px;
+    margin: 100px;
+}
+
+#visualNPC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#valorNPC{
+    font-size: 30px;
+    margin: 100px;
+}

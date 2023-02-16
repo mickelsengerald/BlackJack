@@ -212,8 +212,22 @@ function repartir(){
     botonQueda.disabled = false
     botonPide.disabled = false
 
-    sumaUsuarioCon1()
-    sumaUsuarioCon11()
+    let sumaUsuarioAs1 = sumaUsuarioCon1()
+    let sumaUsuarioAs11 = sumaUsuarioCon11()
+    if(sumaUsuarioAs1>sumaUsuarioAs11 && sumaUsuarioAs1<=21){
+        imprimirUsuario(sumaUsuarioAs1)
+    } else if(sumaUsuarioAs11>sumaUsuarioAs1 && sumaUsuarioAs11<=21){
+        imprimirUsuario(sumaUsuarioAs11)
+    } else if (sumaUsuarioAs1<=sumaUsuarioAs11){
+        imprimirUsuario(sumaUsuarioAs1)
+    } else{
+        imprimirUsuario(sumaUsuarioAs11)
+    }
+}
+
+function imprimirUsuario(p){
+    let imprime = document.getElementById("valorUsuario")
+    imprime.innerHTML = `<b>${p}</b>`;
 }
 
 function aleatorio(min, max) {
@@ -252,8 +266,7 @@ function sumaUsuarioCon1(){
     for (let i = 0; i < cartasUsuario.length ; i++) {
         sumaUsuarioAs1+=cartasUsuario[i].valor; 
     }
-    let p1 = document.getElementById("conAs1")
-    p1.innerHTML=`Con As = 1 tienes <b>${sumaUsuarioAs1}</b>_`
+    
     return sumaUsuarioAs1
 }
 
@@ -267,27 +280,43 @@ function sumaUsuarioCon11(){
             sumaUsuarioAs11+=cartasUsuario[i].valor
         }
     }
-    let p2 = document.getElementById("conAs11")
-    p2.innerHTML=`_Con As = 11 tienes <b>${sumaUsuarioAs11}</b>`
+    
     return sumaUsuarioAs11
 }
 
 function pedir(){
     let sumaUsuarioAs1 = sumaUsuarioCon1()
     let sumaUsuarioAs11 = sumaUsuarioCon11()
+    if(sumaUsuarioAs1>sumaUsuarioAs11 && sumaUsuarioAs1<=21){
+        imprimirUsuario(sumaUsuarioAs1)
+    } else if(sumaUsuarioAs11>sumaUsuarioAs1 && sumaUsuarioAs11<=21){
+        imprimirUsuario(sumaUsuarioAs11)
+    } else if (sumaUsuarioAs1<=sumaUsuarioAs11){
+        imprimirUsuario(sumaUsuarioAs1)
+    } else{
+        imprimirUsuario(sumaUsuarioAs11)
+    }
     
     if(sumaUsuarioAs1==21 || sumaUsuarioAs11==21){
-        alert("No puedes pedir más cartas")
         botonPide.disabled = true
+        quedarse()
     } else if(sumaUsuarioAs1>21 && sumaUsuarioAs11>21){
-        alert("No puedes pedir más cartas")
         botonPide.disabled = true
-    }
-    else {
+        quedarse()
+    } else {
         otraCartaUsuario();
+        sumaUsuarioAs1 = sumaUsuarioCon1()
+        sumaUsuarioAs11 = sumaUsuarioCon11()
+        if(sumaUsuarioAs1>sumaUsuarioAs11 && sumaUsuarioAs1<=21){
+            imprimirUsuario(sumaUsuarioAs1)
+        } else if(sumaUsuarioAs11>sumaUsuarioAs1 && sumaUsuarioAs11<=21){
+            imprimirUsuario(sumaUsuarioAs11)
+        } else if (sumaUsuarioAs1<=sumaUsuarioAs11){
+            imprimirUsuario(sumaUsuarioAs1)
+        } else{
+            imprimirUsuario(sumaUsuarioAs11)
+        }
     }
-    sumaUsuarioCon1()
-    sumaUsuarioCon11()
 }
 
 function otraCartaUsuario(){
@@ -302,6 +331,15 @@ function otraCartaUsuario(){
     }
     cartasUsuario.push(unaMas)
     colocarCartasUsuario()
+    let sumaUsuarioAs1 = sumaUsuarioCon1()
+    let sumaUsuarioAs11 = sumaUsuarioCon11()
+if(sumaUsuarioAs1==21 || sumaUsuarioAs11==21){
+        botonPide.disabled = true
+        quedarse()
+    } else if(sumaUsuarioAs1>21 && sumaUsuarioAs11>21){
+        botonPide.disabled = true
+        quedarse()
+    }
 }
 
 function quedarse(){
@@ -316,23 +354,41 @@ function quedarse(){
             colocarCartasNPCDestapadas()
             ctx.drawImage(derrota, 127, 72, 55, 35);
             botonQueda.disabled =true;
-            
+            if (sumaNPCAs1>=sumaNPCAs11 && sumaNPCAs1<=21){
+                imprimirNPC(sumaNPCAs1)
+            } else {
+                imprimirNPC(sumaNPCAs11)
+            }
         }
         else if((sumaNPCAs1>sumaUsuarioAs1 && sumaNPCAs1>sumaUsuarioAs11 && sumaNPCAs1<=21) || (sumaNPCAs11>sumaUsuarioAs1 && sumaNPCAs11>sumaUsuarioAs11 && sumaNPCAs11<=21)){
             colocarCartasNPCDestapadas()
             ctx.drawImage(derrota, 127, 72, 55, 35);
             botonQueda.disabled =true;
-            
+            if (sumaNPCAs1>=sumaNPCAs11 && sumaNPCAs1<=21){
+                imprimirNPC(sumaNPCAs1)
+            } else {
+                imprimirNPC(sumaNPCAs11)
+            }
         }
         else if((sumaNPCAs1 == 21 || sumaNPCAs11 == 21) && (sumaUsuarioAs1== 21 || sumaUsuarioAs11==21)){
             colocarCartasNPCDestapadas()
             ctx.drawImage(empate, 127, 72, 55, 35);
             botonQueda.disabled =true;
+            if (sumaNPCAs1>=sumaNPCAs11 && sumaNPCAs1<=21){
+                imprimirNPC(sumaNPCAs1)
+            } else {
+                imprimirNPC(sumaNPCAs11)
+            }
             
         } else if((sumaNPCAs1>21 && sumaNPCAs11>21) && (sumaUsuarioAs1<=21 || sumaUsuarioAs11<=21)){
             colocarCartasNPCDestapadas()
             ctx.drawImage(victoria, 127, 72, 55, 35);
             botonQueda.disabled =true;
+            if (sumaNPCAs1>=sumaNPCAs11 && sumaNPCAs1<=21){
+                imprimirNPC(sumaNPCAs1)
+            } else {
+                imprimirNPC(sumaNPCAs11)
+            }
             
         } else {
             otraCartaNPC()
@@ -341,6 +397,12 @@ function quedarse(){
     botonReinicia.disabled = false
 
 }
+
+function imprimirNPC(p){
+    let imprime = document.getElementById("valorNPC")
+    imprime.innerHTML = `<b>${p}</b>`;
+}
+
 
 function colocarCartasNPCDestapadas(){
     let posX = 1;

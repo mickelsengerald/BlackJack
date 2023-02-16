@@ -9,22 +9,31 @@
         <body>
             <h1 class="titulo">BlackJack</h1>
             <div id="juego">
-                <img src="./Imagenes/dealer.jpg" class="dealer">
+                <div id="visualNPC">
+                    <img src="./Imagenes/dealer.jpg" class="dealer">
+                    <p id="valorNPC"></p>
+                </div>
                 <canvas id="canvas"></canvas>
    
             </div>
-            <div id="botones">
-                <button id="repartir" onclick="repartir()">Repartir cartas</button>
-            
-                <div id="botInteraccion">
-                    <p id="conAs1">0</p>
-                    <button id="pide" onclick="pedir()">Pedir carta</button>
-                    <button id="queda" onclick="quedarse()">Quedarse</button>
-                    <p id="conAs11">0</p>
+            <div id="visualUsuario">
+                
+                <div id="botones">
+                    <button id="repartir" onclick="repartir()">Repartir cartas</button>
+                
+                    <div id="botInteraccion">
+                        
+                        <button id="pide" onclick="pedir()">Pedir carta</button>
+                        <button id="queda" onclick="quedarse()">Quedarse</button>
+                        
+                    </div>
+                
+                    <button id="reinicia" onclick="reiniciar()">Reiniciar juego</button>
                 </div>
-            
-                <button id="reinicia" onclick="reiniciar()">Reiniciar juego</button>
-            </div>
+                <div>
+                    <p id="valorUsuario">0</p>
+                </div>
+        </div>
             <script src="./archivos/blackjack.js"></script>
         </body>
     </html>
