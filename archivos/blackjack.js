@@ -223,6 +223,10 @@ function repartir(){
     } else{
         imprimirUsuario(sumaUsuarioAs11)
     }
+    
+    if(sumaUsuarioAs1==21 || sumaUsuarioAs11==21){
+        quedarse()
+    }
 }
 
 function imprimirUsuario(p){
